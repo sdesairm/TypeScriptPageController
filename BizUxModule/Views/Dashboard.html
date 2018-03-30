@@ -1,0 +1,31 @@
+﻿<table id="tblGroups">
+    <thead>
+        <tr>
+            <th data-bind="sort: { arr: Employers, prop: 'CompanyName' }">Name</th>
+            <th data-bind="sort: { arr: Employers, prop: 'Status' }">Status</th>
+            <th data-bind="sort: { arr: Employers, prop: 'Zipcode' }">Zip</th>
+            <th data-bind="sort: { arr: Employers, prop: 'EffectiveDate' }">EffectiveDate</th>
+            <th>EnrollmentProgress</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody data-bind="template: { name: 'dashboardGridTemplate', foreach:Data }"></tbody>
+</table>
+<script type="text/html" id="dashboardGridTemplate">
+    <tr>
+        <td>
+            <a href="Javascript:void();" data-bind="text: Name, click : function(x){ DriverPage.LoadSubPage('EmployerInformation?groupId=' + x.CompanyID);}"></a>
+        </td>
+        <td data-bind="text: Status"></td>
+        <td data-bind="text: ZipCode"></td>
+        <td data-bind="text: EffectiveDate"></td>
+        <td></td>
+        <td>
+            <select>
+                <option value="">Actions</option>
+                <option value="ManageEnrollments">Manage Enrollments</option>
+                <option value="ViewEnrollment">View Enrollment Progress</option>
+            </select>
+        </td>
+    </tr>
+</script>
