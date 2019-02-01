@@ -15,8 +15,11 @@ export class BaseSubPage extends UserControl {
         this.element.innerHTML = "";
         this.element.appendChild(this.spanElement);
     }
-    LoadSubPage() {
-        this.LoadSpanElement(this.Url, this.Name);
-        this.LoadUserControls(this.element);
+    async LoadSubPage():Promise<void> {
+        await this.LoadSpanElement(this.Url, this.Name).then(
+            async () => {
+                await this.LoadUserControls(this.element);
+            }
+        );
     }
 }

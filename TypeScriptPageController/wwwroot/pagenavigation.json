@@ -1,5 +1,4 @@
-{
-  "NavSubPageList": {
+ {
     "NavSubPages": [
       {
         "Name": "Login",
@@ -7,15 +6,10 @@
         "Url": "Views/LoginPage.html"
       },
       {
-        "Name": "Dashboard",
-        "CodeBehind": "Dashboard",
-        "Url": "Views/Dashboard.html"
-      },
-      {
-        "Name": "EmployerInformation",
-        "CodeBehind": "EmployerInformation",
-        "Url": "Views/EmployerInformation.html"
-      }
+        "Name": "Landing",
+        "CodeBehind": "Landing",
+        "Url": "Views/Landing.html"
+      }      
     ]
   }
-}
+

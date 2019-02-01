@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -15,6 +15,8 @@
   <ItemGroup>
     <Content Remove="wwwroot\App.js" />
     <Content Remove="wwwroot\App.js.map" />
+    <Content Remove="wwwroot\default.ts" />
+    <Content Remove="wwwroot\Views\Landing.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,10 +33,6 @@
     <None Include="wwwroot\app.ts" />
     <None Include="wwwroot\Index.ts" />
     <None Include="wwwroot\UserControls\ucLogin.html" />
-    <None Include="wwwroot\Views\Dashboard.html" />
-    <None Include="wwwroot\Views\Dashboard.ts" />
-    <None Include="wwwroot\Views\EmployerInformation.html" />
-    <None Include="wwwroot\Views\EmployerInformation.ts" />
     <None Include="wwwroot\Views\LoginPage.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -47,8 +45,10 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="wwwroot\app.ts" />
+    <TypeScriptCompile Include="wwwroot\default.ts" />
     <TypeScriptCompile Include="wwwroot\Index.ts" />
     <TypeScriptCompile Include="wwwroot\UserControls\ucLogin.ts" />
+    <TypeScriptCompile Include="wwwroot\Views\Landing.ts" />
     <TypeScriptCompile Include="wwwroot\Views\LoginPage.ts" />
     <TypeScriptCompile Include="wwwroot\_Base\BasePage.ts" />
     <TypeScriptCompile Include="wwwroot\_Base\BaseSubPage.ts" />

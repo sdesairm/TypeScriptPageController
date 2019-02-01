@@ -6,7 +6,7 @@ export class LoginPage extends BaseSubPage {
     SetEvents() {
         var x: ucLogin = this.FindUserControlById<ucLogin>("ucLogin1");
         x.LoginClick = () => {
-            App.DriverPage.LoadSubPage("Dashboard");
+            App.DriverPage.LoadSubPage("Landing");
         };
     }
 }

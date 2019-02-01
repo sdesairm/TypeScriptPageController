@@ -6,4 +6,5 @@ export { UserControl } from "./_Base/UserControl.js";
 //export { App } from "./app.js";
 
 export { LoginPage } from "./Views/LoginPage.js";
+export { Landing } from "./Views/Landing.js";
 export { ucLogin } from "./UserControls/ucLogin.js";

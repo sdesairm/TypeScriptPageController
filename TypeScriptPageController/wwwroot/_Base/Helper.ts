@@ -4,47 +4,25 @@ export class Helper {
     static GetWebApiUrl(controllerAction: string): string {
         return "api/" + controllerAction;
     }
-    static GetResponseFromServer(Url: string, method: string, async: boolean) {
-        return this.callServer(Url, method, async).response;
+    static async GetResponseFromServer<T>(Url: string, method: string, async: boolean) : Promise<T>{
+        return fetch(Url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(response.statusText)
+                }
+                return response.json();
+            });
     }
-    static GetHtmlResponseFromServer(Url: string, method: string, async: boolean): string {
-        return this.callServer(Url, method, async).responseText;
+    static GetHtmlResponseFromServer(Url: string, method: string, async: boolean): Promise<string> {
+        return fetch(Url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(response.statusText)
+                }
+                return response.text();
+            })
     }
-    private static callServer(Url: string, method: string, async: boolean): XMLHttpRequest {
-        var objHttpReq = new XMLHttpRequest();
-        if (Url.toLowerCase().substr(0, 4) != "http")
-            Url = "" + Url;
-        if (method == "GET")
-            Url = Url + "?timestamp=" + Math.random();
-        objHttpReq.open(method == "GET" ? "get" : "post", Url, async);
-        objHttpReq.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-        objHttpReq.withCredentials = true;
-        objHttpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        objHttpReq.setRequestHeader("Connection", "close");
-        objHttpReq.send();
-        if (objHttpReq.readyState == 4 && objHttpReq.status == 200)
-            return objHttpReq;
-    }
-    static objHttpReq: XMLHttpRequest = new XMLHttpRequest();
-    static CallAPI(Url: string, method: string, data: any, stateChange: (ev: Event) => any) {
-        if (method == "GET") {
-            data.timestamp = Math.random();
-            Url = Url + "?" + data;
-        }
-        this.objHttpReq.open(method == "GET" ? "get" : "post", Url, true);
-        this.objHttpReq.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-        this.objHttpReq.withCredentials = true;
-        this.objHttpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        this.objHttpReq.setRequestHeader("Connection", "close");
-        var reqToken = (<HTMLInputElement>(document.getElementById("hdnRequestVerificationToken"))).value;
-        if (reqToken.length > 0)
-            this.objHttpReq.setRequestHeader("RequestVerificationToken", reqToken);
-        if (method == "POST")
-            this.objHttpReq.send("=" + JSON.stringify(data));
-        else
-            this.objHttpReq.send();
-        this.objHttpReq.onreadystatechange = stateChange;
-    }
+
     static CreateInstance<T>(ClassFullName: string): T {
         var reference: T;
         var className: string[] = ClassFullName.split('.');

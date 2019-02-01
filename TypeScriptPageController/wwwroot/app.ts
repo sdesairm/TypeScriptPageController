@@ -1,4 +1,5 @@
 ﻿import { BasePage } from "./Index.js";
+import { Default } from "./default.js";
 
 
 export class App {
@@ -8,5 +9,13 @@ export class App {
 window.onload = () => {
     App.DriverPage = new BasePage();
 
-    App.DriverPage.LoadSubPage("Login");
+    var lnkLogOut: HTMLLinkElement = document.getElementById("lnkLogOut") as HTMLLinkElement;
+    lnkLogOut.onclick = () => {
+        App.DriverPage.Logout();
+    }
+    App.DriverPage.LoadNavConfig().then(
+        () => {
+            App.DriverPage.LoadSubPage("Login");
+        }
+    );    
 };

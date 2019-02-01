@@ -8,18 +8,19 @@ export class BasePage {
     pageHistory: any[];
     Subpage: BaseSubPage;
     hdnRequestVerificationToken: HTMLInputElement;
-    constructor() {
-        let js = Helper.GetResponseFromServer("pagenavigation.json", "GET", false);
-        let o = JSON.parse(js);
-        this.NavConfig = o.NavSubPageList;
+    constructor() {             
         this.divBreadcrumb = document.getElementById("divBreadcrumb");
         this.pageHistory = [];
-        this.hdnRequestVerificationToken = document.createElement("input");
-        document.body.appendChild(this.hdnRequestVerificationToken);
-        this.hdnRequestVerificationToken.type = "hidden";
-        this.hdnRequestVerificationToken.hidden = true;
-        this.hdnRequestVerificationToken.id = "hdnRequestVerificationToken";
     }
+
+    async LoadNavConfig():Promise<void> {
+        await Helper.GetResponseFromServer<NavSubPageList>("pagenavigation.json", "GET", false).then(
+            (resp) => {
+                this.NavConfig = resp;
+            }
+        );     
+    }
+
     LoadSubPage(subpageName: string) {
         var parsedQueryString: any = Helper.ParseQueryString(subpageName);
         subpageName = parsedQueryString.SubPageName;
@@ -43,14 +44,14 @@ export class BasePage {
                 break;
         }
         while (i + 1 < this.pageHistory.length) this.pageHistory.pop();
-        this.Subpage.LoadSubPage();
-        this.Subpage.SetEvents();
+        this.Subpage.LoadSubPage().then(
+            () => {
+                this.Subpage.SetEvents();
+            }
+        )
 
     }
     Logout() {
-        this.Subpage.CallAPI<boolean>(Helper.GetWebApiUrl("mm/Logout"), "POST", '', (authenticated: boolean) => {
-            if (authenticated)
-                this.LoadSubPage("Login");
-        });
+        this.LoadSubPage("Login");
     }
 }

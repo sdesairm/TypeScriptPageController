@@ -7,10 +7,13 @@ export class ucLogin extends UserControl {
         var txtPassword: HTMLInputElement = this.FindChildElementById<HTMLInputElement>("txtPassword");
         btnLogin.onclick = (e) => {
             var data = { username: txtUserName.value, password: txtPassword.value };
-            this.CallAPI<boolean>(Helper.GetWebApiUrl("mm/AuthenticateUser"), "POST", data, (authenticated: boolean) => {
-                if (authenticated)
-                    this.LoginClick(e);
-            });
+            //call API to Validate
+            if (data.username == "test" && data.password == "Test") {
+                this.LoginClick(e);
+            }
+            else {
+
+            }            
         };
     }
 }
