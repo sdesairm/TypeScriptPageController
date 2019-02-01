@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<SubPages>
-  <SubPage Name="Login" CodeBehind="PageNavigation.LoginPage" Url="Views/LoginPage.html"></SubPage>
-  <SubPage Name="Dashboard" CodeBehind="PageNavigation.Dashboard" Url="Views/Dashboard.html"></SubPage>
-  <SubPage Name="EmployerInformation" CodeBehind="PageNavigation.EmployerInformation" Url="Views/EmployerInformation.html"></SubPage>
-</SubPages>

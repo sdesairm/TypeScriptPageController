@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "declaration": false,
+    "sourceMap": true,
+    "target": "es2015",
+    "outDir": "./wwwroot",
+    //"outFile": "./wwwroot/main.js",
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
