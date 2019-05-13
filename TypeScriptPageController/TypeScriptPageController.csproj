@@ -17,6 +17,8 @@
     <Content Remove="wwwroot\App.js.map" />
     <Content Remove="wwwroot\default.ts" />
     <Content Remove="wwwroot\Views\Landing.ts" />
+    <Content Remove="wwwroot\_Base\SessionState.ts" />
+    <Content Remove="wwwroot\_Base\UserDetails.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -54,7 +56,9 @@
     <TypeScriptCompile Include="wwwroot\_Base\BaseSubPage.ts" />
     <TypeScriptCompile Include="wwwroot\_Base\Helper.ts" />
     <TypeScriptCompile Include="wwwroot\_Base\NavConfig.ts" />
+    <TypeScriptCompile Include="wwwroot\_Base\SessionState.ts" />
     <TypeScriptCompile Include="wwwroot\_Base\UserControl.ts" />
+    <TypeScriptCompile Include="wwwroot\_Base\UserDetails.ts" />
   </ItemGroup>
 
   <ItemGroup>

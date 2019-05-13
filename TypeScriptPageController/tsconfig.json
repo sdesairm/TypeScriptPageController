@@ -1,21 +1,14 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./src",
-    "module": "es2015",
     "moduleResolution": "node",
-    "noImplicitAny": false,
-    "noEmitOnError": true,
-    "removeComments": false,
-    "declaration": false,
-    "sourceMap": true,
-    "target": "es2015",
-    "outDir": "./wwwroot",
-    //"outFile": "./wwwroot/main.js",
+    "target": "es6", 
     "typeRoots": [
       "node_modules/@types"
+    ],
+    "lib": [
+      "es2016",
+      "dom"
     ]
-  },
-  "exclude": [
-    "node_modules"
-  ]
+  }
 }

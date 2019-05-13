@@ -1,6 +1,8 @@
-﻿import { NavSubPage, NavSubPageList } from "./NavConfig.js";
-import { BaseSubPage } from "./BaseSubPage.js";
-import { Helper } from "./Helper.js";
+﻿import { NavSubPage, NavSubPageList } from "./NavConfig";
+import { BaseSubPage } from "./BaseSubPage";
+import { Helper } from "./Helper";
+import { App } from "../app";
+import { UserDetails } from "./UserDetails";
 
 export class BasePage {
     NavConfig: NavSubPageList;
@@ -21,7 +23,8 @@ export class BasePage {
         );     
     }
 
-    LoadSubPage(subpageName: string) {
+    LoadSubPage(subpageName: string) {        
+        
         var parsedQueryString: any = Helper.ParseQueryString(subpageName);
         subpageName = parsedQueryString.SubPageName;
         var subPageNode: NavSubPage;
@@ -36,14 +39,27 @@ export class BasePage {
         this.Subpage.QueryParams = parsedQueryString;
         this.Subpage.Name = subpageName;
         this.Subpage.Url = subPageNode.Url;
+        if (subPageNode.Claims.length > 0) {
+            var userDetails: UserDetails = App.Session.GetSessionItem<UserDetails>("UserDetails");
+            if (null === userDetails) return;
+            var hasRights: boolean = true;
+            subPageNode.Claims.forEach((x) => { if (userDetails.Claims.indexOf(x) < 0) hasRights = false; })
+            if (!hasRights) {
+                alert("Not accessible");
+                return;
+            }
+        }
+        var stateObj = { foo: "bar" };
+        history.pushState(stateObj, subpageName, subpageName);
+
         var i: number;
 
-        this.pageHistory.push({ SubPagename: subpageName });
-        for (i = 0; i < this.pageHistory.length; i++) {
-            if (this.pageHistory[i].SubPagename == subpageName)
-                break;
-        }
-        while (i + 1 < this.pageHistory.length) this.pageHistory.pop();
+        //this.pageHistory.push({ SubPagename: subpageName });
+        //for (i = 0; i < this.pageHistory.length; i++) {
+        //    if (this.pageHistory[i].SubPagename == subpageName)
+        //        break;
+        //}
+        //while (i + 1 < this.pageHistory.length) this.pageHistory.pop();
         this.Subpage.LoadSubPage().then(
             () => {
                 this.Subpage.SetEvents();

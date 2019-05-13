@@ -1,8 +1,25 @@
 {
-  "name": "typescriptcore",
+  "name": "typescriptpagecontroller",
   "version": "1.0.0",
-  "description": "",
-  "dependencies": {},
-  "devDependencies": {},
-  "scripts": {}
+  "description": "Page controller design pattern in Typescript",
+  "dependencies": {
+    "copy-webpack-plugin": "^5.0.3",
+    "ts-loader": "^6.0.0",
+    "typescript": "^3.4.5",
+    "webpack": "^4.31.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.2"
+  },
+  "scripts": {
+    "start": ".\\node_modules\\.bin\\webpack --watch\""
+  },
+  "main": "index.js",
+  "author": "Sandeep Desai",
+  "license": "ISC",
+  "keywords": [
+    "page",
+    "controller",
+    "typescript"
+  ]
 }

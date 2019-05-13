@@ -3,12 +3,14 @@
       {
         "Name": "Login",
         "CodeBehind": "LoginPage",
-        "Url": "Views/LoginPage.html"
+        "Url": "Views/LoginPage.html",
+        "Claims": []
       },
       {
         "Name": "Landing",
         "CodeBehind": "Landing",
-        "Url": "Views/Landing.html"
+        "Url": "Views/Landing.html",
+        "Claims": ["x"]
       }      
     ]
   }

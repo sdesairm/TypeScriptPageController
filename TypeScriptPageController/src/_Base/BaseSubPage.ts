@@ -1,7 +1,7 @@
-﻿import { UserControl } from "./UserControl.js";
+﻿import { UserControl } from "./UserControl";
 
 export class BaseSubPage extends UserControl {
-    SubPageName: string; Url: string; element: HTMLElement; Name: string; QueryParams: any;
+    SubPageName: string; Url: string; element: any; Name: string; QueryParams: any;
     FindUserControlById<T extends UserControl>(id: string): T {
         for (var i: number = 0; i < this.Controls.length; i++) {
             if (this.Controls[i].spanElement.id == id)

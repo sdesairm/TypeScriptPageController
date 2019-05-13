@@ -25,8 +25,8 @@ namespace TypeScriptCore
                 app.UseHsts();
             }
             //app.UseHttpsRedirection();
-            app.UseStaticFiles();
-            app.UseDefaultFiles();            
+            app.UseDefaultFiles();
+            app.UseStaticFiles();            
         }
     }
 }

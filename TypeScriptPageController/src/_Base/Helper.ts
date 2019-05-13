@@ -1,4 +1,4 @@
-﻿import * as x from "../Index.js";
+﻿import * as x from "../Index";
 export class Helper {
     constructor() { }
     static GetWebApiUrl(controllerAction: string): string {

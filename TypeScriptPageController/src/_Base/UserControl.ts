@@ -1,4 +1,4 @@
-﻿import { Helper } from "./Helper.js";
+﻿import { Helper } from "./Helper";
 
 export class UserControl {
     spanElement: HTMLSpanElement; Controls: UserControl[];
