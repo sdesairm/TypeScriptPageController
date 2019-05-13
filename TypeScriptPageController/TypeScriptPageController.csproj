@@ -7,37 +7,18 @@
 
   <ItemGroup>
     <Compile Remove="wwwroot\src\**" />
+    <Compile Remove="wwwroot\_Base\**" />
     <Content Remove="wwwroot\src\**" />
+    <Content Remove="wwwroot\_Base\**" />
     <EmbeddedResource Remove="wwwroot\src\**" />
+    <EmbeddedResource Remove="wwwroot\_Base\**" />
     <None Remove="wwwroot\src\**" />
+    <None Remove="wwwroot\_Base\**" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Remove="wwwroot\App.js" />
     <Content Remove="wwwroot\App.js.map" />
-    <Content Remove="wwwroot\default.ts" />
-    <Content Remove="wwwroot\Views\Landing.ts" />
-    <Content Remove="wwwroot\_Base\SessionState.ts" />
-    <Content Remove="wwwroot\_Base\UserDetails.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="wwwroot\UserControls\ucLogin.ts" />
-    <None Remove="wwwroot\Views\LoginPage.ts" />
-    <None Remove="wwwroot\_Base\BasePage.ts" />
-    <None Remove="wwwroot\_Base\BaseSubPage.ts" />
-    <None Remove="wwwroot\_Base\Helper.ts" />
-    <None Remove="wwwroot\_Base\NavConfig.ts" />
-    <None Remove="wwwroot\_Base\UserControl.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\app.ts" />
-    <None Include="wwwroot\Index.ts" />
-    <None Include="wwwroot\UserControls\ucLogin.html" />
-    <None Include="wwwroot\Views\LoginPage.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -46,26 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="wwwroot\app.ts" />
-    <TypeScriptCompile Include="wwwroot\default.ts" />
-    <TypeScriptCompile Include="wwwroot\Index.ts" />
-    <TypeScriptCompile Include="wwwroot\UserControls\ucLogin.ts" />
-    <TypeScriptCompile Include="wwwroot\Views\Landing.ts" />
-    <TypeScriptCompile Include="wwwroot\Views\LoginPage.ts" />
-    <TypeScriptCompile Include="wwwroot\_Base\BasePage.ts" />
-    <TypeScriptCompile Include="wwwroot\_Base\BaseSubPage.ts" />
-    <TypeScriptCompile Include="wwwroot\_Base\Helper.ts" />
-    <TypeScriptCompile Include="wwwroot\_Base\NavConfig.ts" />
-    <TypeScriptCompile Include="wwwroot\_Base\SessionState.ts" />
-    <TypeScriptCompile Include="wwwroot\_Base\UserControl.ts" />
-    <TypeScriptCompile Include="wwwroot\_Base\UserDetails.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Update="wwwroot\pagenavigation.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\default.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
